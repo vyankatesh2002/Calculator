@@ -6,29 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🔥 Smart Calculator</title>
   <link rel="stylesheet" href="css/style.css">
-
-
 </head>
 
 <body>
   <div class="calculator">
-    <div class="top-bar">
-      <button class="icon-btn" id="theme-toggle" title="Toggle theme">🌙</button>
-      <button class="icon-btn" id="history-toggle" title="Toggle history">📜</button>
-    </div>
 
-    <input type="text" id="display" disabled>
+    <div class="display" id="display">0</div>
 
-    <div id="history-panel" class="history-panel hidden">
-      <ul id="history-list"></ul>
-      <button class="secondary-btn" id="clear-history">Clear History</button>
-    </div>
-
-    <div class="buttons">
-      <button onclick="clearAll()">Clear All</button>
+       <div class="buttons">
       <button onclick="appendValue('C')">C</button>
       <button onclick="deleteLast()">DEL</button>
-      <button onclick="clearAll()">Clear All</button>
       <button onclick="appendValue('%')">%</button>
       <button onclick="appendValue('/')">/</button>
 
@@ -51,6 +38,9 @@
       <button onclick="appendValue('.')">.</button>
       <button onclick="calculate()">=</button>
     </div>
+  </div>
+
+
   </div>
   <script src="js/calculator.js"></script>
 </body>
