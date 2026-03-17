@@ -58,7 +58,12 @@
         display.value = '';
       };
 
-      window.deleteLast = function() {
+window.clearAll = function() {
+  playBeep();
+  display.value = '';
+};
+
+window.deleteLast = function() {
         playBeep();
         display.value = display.value.slice(0, -1);
       };

@@ -6,6 +6,7 @@
       const historyPanel = document.getElementById('history-panel');
       const historyList = document.getElementById('history-list');
       const clearHistoryBtn = document.getElementById('clear-history');
+      
 
       // ----- State -----
       let history = [];
@@ -29,6 +30,10 @@
           // Ignore audio errors
         }
       }
+window.clearAll = function() {
+  playBeep();
+  display.value = '';
+};
 
       function beepInternal() {
         if (!audioContext) return;
