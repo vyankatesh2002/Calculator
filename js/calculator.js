@@ -33,7 +33,7 @@
   function deleteLast() {
     playBeep();
     let current = display.textContent;
-    updateDisplay(current.slice(0, -1));
+    updateDisplay(current.slice(0, -1) || '0');
   }
   
   function calculate() {
@@ -41,7 +41,7 @@
     try {
       let expression = display.textContent.replace(/×/g, '*').replace(/÷/g, '/');
       let result = Function('"use strict";return (' + expression + ')')();
-      updateDisplay(isNaN(result) ? 'Error' : Math.round(result * 10000000000) / 10000000000);
+      updateDisplay(isNaN(result) || !isFinite(result) ? 'Error' : result);
     } catch {
       updateDisplay('Error');
     }
@@ -89,8 +89,5 @@
       updateDisplay('');
     }
   });
-  
-  // Initial
-  updateDisplay('');
   
 })();
