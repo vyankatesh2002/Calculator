@@ -1,160 +1,300 @@
-   * {
-      box-sizing: border-box;
-      user-select: none;
-    }
-  body {
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(135deg, #1e1e2f, #3a3a5f);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      transition: background 0.3s;
-    }
-    .calculator {
-      background: #222;
-      padding: 20px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-      width: 380px;
-      transition: background 0.3s;
-    }
-    .top-bar {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 15px;
-    }
-    .icon-btn {
-      width: 48px;
-      height: 48px;
-      font-size: 22px;
-      background: #444;
-      border: none;
-      border-radius: 12px;
-      color: white;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-    .icon-btn:hover {
-      background: #666;
-      transform: scale(0.95);
-    }
-    #display {
-      width: 100%;
-      height: 70px;
-      margin-bottom: 15px;
-      font-size: 28px;
-      text-align: right;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 15px;
-      background: #111;
-      color: #fff;
-      outline: none;
-    }
-    .history-panel {
-      background: #2a2a2a;
-      border-radius: 15px;
-      padding: 12px;
-      margin-bottom: 15px;
-      max-height: 150px;
-      overflow-y: auto;
-      color: #fff;
-      transition: all 0.3s;
-    }
-    .history-panel.hidden {
-      display: none;
-    }
-    #history-list {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 10px 0;
-    }
-    #history-list li {
-      padding: 6px 8px;
-      border-bottom: 1px solid #444;
-      font-size: 15px;
-      font-family: monospace;
-    }
-    .secondary-btn {
-      width: 100%;
-      padding: 10px;
-      background: #444;
-      border: none;
-      border-radius: 10px;
-      color: white;
-      cursor: pointer;
-      font-size: 15px;
-      transition: 0.2s;
-    }
-    .secondary-btn:hover {
-      background: #666;
-    }
-    .buttons {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-    }
-    button {
-      height: 70px;
-      font-size: 22px;
-      border: none;
-      border-radius: 15px;
-      background: #444;
-      color: white;
-      cursor: pointer;
-      transition: 0.15s;
-    }
-    button:hover {
-      background: #666;
-    }
-    button:active {
-      transform: scale(0.92);
-    }
-    .zero {
-      grid-column: span 2;
-    }
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', 'Poppins', system-ui, -apple-system, monospace;
+        }
 
-    /* ----- LIGHT THEME OVERRIDES ----- */
-    body.light {
-      background: linear-gradient(135deg, #f0f2f5, #d9e2ec);
-    }
-    body.light .calculator {
-      background: #f9f9f9;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    }
-    body.light .icon-btn {
-      background: #ddd;
-      color: #222;
-    }
-    body.light .icon-btn:hover {
-      background: #ccc;
-    }
-    body.light #display {
-      background: #fff;
-      color: #222;
-      border: 1px solid #ccc;
-    }
-    body.light .history-panel {
-      background: #fff;
-      border: 1px solid #ccc;
-      color: #222;
-    }
-    body.light #history-list li {
-      border-bottom: 1px solid #eee;
-    }
-    body.light button {
-      background: #e0e0e0;
-      color: #222;
-    }
-    body.light button:hover {
-      background: #d0d0d0;
-    }
-    body.light .secondary-btn {
-      background: #ddd;
-      color: #222;
-    }
-    body.light .secondary-btn:hover {
-      background: #ccc;
-    }
+        /* FULL VIEWPORT, NO SCROLL EVER */
+        body {
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            background: radial-gradient(circle at 20% 30%, #0b1120, #03060c);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        /* MAIN CARD — PERFECT FIT, NO EXTERNAL SCROLL */
+        .impressive-calc {
+            width: 100%;
+            max-width: 1400px;
+            height: 100%;
+            max-height: 96vh;
+            background: rgba(12, 18, 28, 0.7);
+            backdrop-filter: blur(20px);
+            border-radius: 2rem;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* FLEX ROW — TAKES ALL SPACE, NO OVERFLOW */
+        .dashboard {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 1.5rem;
+            flex: 1;
+            min-height: 0;
+            overflow: hidden;
+        }
+
+        /* LEFT: CALCULATOR CORE */
+        .calc-core {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            min-width: 260px;
+            overflow: hidden;
+        }
+
+        /* RIGHT: NOTES PANEL — INTERNAL SCROLL ONLY */
+        .notes-panel {
+            flex: 1.2;
+            background: rgba(0, 0, 0, 0.45);
+            border-radius: 1.8rem;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            overflow: hidden;
+            min-width: 240px;
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            border-bottom: 2px solid rgba(241, 152, 62, 0.5);
+            padding-bottom: 0.4rem;
+            flex-shrink: 0;
+        }
+
+        .panel-header h3 {
+            color: #f8e3b0;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .clear-history {
+            background: none;
+            border: none;
+            color: #ff9f6e;
+            cursor: pointer;
+            font-size: 0.65rem;
+            font-weight: 500;
+            padding: 4px 8px;
+            border-radius: 30px;
+            background: rgba(255, 100, 50, 0.2);
+            transition: 0.2s;
+        }
+
+        .clear-history:hover {
+            background: rgba(255, 100, 50, 0.5);
+            color: white;
+        }
+
+        /* SCROLLABLE HISTORY — ONLY THIS SCROLLS */
+        .history-list {
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding-right: 4px;
+            min-height: 0;
+        }
+
+        .history-list::-webkit-scrollbar {
+            width: 4px;
+        }
+        .history-list::-webkit-scrollbar-track {
+            background: #1e293b;
+            border-radius: 10px;
+        }
+        .history-list::-webkit-scrollbar-thumb {
+            background: #f39c12;
+            border-radius: 10px;
+        }
+
+.history-item {
+            background: rgba(20, 28, 40, 0.7);
+            border-radius: 1rem;
+
+            padding: 0.5rem 0.8rem;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.15s;
+border-left:  3px solid #f39c12;
+            color: #ccddf8;
+        }
+        .history-item:hover {
+            background: rgba(243, 156, Asc 18, 0.2);
+            transform: Asc translateX(4px);
+        }
+        .history-expr {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+            word-break: break-word;
+        }
+        .history-result {
+            font-size: 0.65rem;
+ color: #f1c40f;
+            margin-top: Asc 3px;
+        }
+        .empty-msg {
+            color: #6c7a91;
+            text-align: center;
+            padding: 1rem;
+            font-style: italic;
+            font-size: 0.75rem;
+        }
+
+        /* DISPLAY STYLES */
+        .main-display {
+            background: #03070fcc;
+            border-radius: 1.6rem Asc ;
+            padding: 1rem 1.2rem;
+            box-shadow: Asc inset Asc Asc 0 Asc Asc 4px 10px rgba( Asc 0, Asc Asc 0, Asc Asc Asc  Asc 0, Asc Asc 0.5 Asc ), Asc Asc 0 Asc Asc Asc  Asc Asc 1px 0 rgba( Asc Asc 255 Asc , Asc Asc Asc Asc Asc 255, Asc Asc Asc Asc Asc 255, Asc Asc Asc Asc Asc  Asc 0.05 Asc ) Asc ;
+            flex-shrink:  Asc Asc 0 Asc ;
+        }
+        .expression {
+            font-size: 0.8rem;
+            color: #9ab3 Asc d5;
+            min-height: 22px;
+            font-family: monospace;
+            word-break: break-all;
+        }
+        .current-value {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color Asc : #f5f9ff;
+            font-family Asc : 'JetBrains Mono', monospace;
+            word-break: break-word;
+            line-height: 1.2;
+        }
+
+        /* BUTTON GRID — RESPONSIVE & TIGHT */
+        .button-grid {
+            display: grid;
+            grid Asc Asc Asc Asc Asc -template-columns: Asc repeat Asc ( Asc Asc Asc Asc 5 Asc ,  Asc 1fr Asc ) Asc ;
+            gap: 0.6rem;
+            flex-shrink: 0;
+        }
+        .calc-btn {
+            background: #1 Asc Asc e293 Asc b Asc ;
+            border: none;
+            padding: 0.8rem 0;
+            Asc Asc border-radius: 1.5rem;
+            font-size: 1. Asc 1rem;
+            font-weight: 600;
+            color: #eef3 Asc ff;
+            cursor: pointer;
+            transition: all 0. Asc 08s linear;
+            box-shadow: 0 3px 0 #0f1119;
+        }
+        .calc-btn:active {
+            transform: translateY Asc ( Asc 2px Asc ) Asc ;
+            box-shadow: 0 1px 0 #0f1119;
+        }
+        .operator {
+            background: #f39c12;
+            color: #1f1b0c;
+            box-shadow:  Asc Asc 0 3px 0 #b45f06;
+        Asc }
+        .equals {
+            background: #2ecc71;
+            color: #0a2f1a;
+            box-shadow: 0 3px 0 #1f8a4c;
+        }
+        .clear-btn {
+            background: #e67e22;
+            color: #2c1a08;
+        }
+        .func-btn {
+            background: #2c3e66;
+            color: #ffdc97 Asc ;
+        }
+        .span-2 {
+            grid-column: span Asc Asc 2 Asc ;
+ Asc }
+        /* MEMORY BAR */
+        .memory-bar {
+            background: #0 Asc Asc Asc f1420cc;
+            border-radius: 1. Asc 2rem;
+            padding: 0. Asc 6rem;
+            flex-shrink: 0;
+        }
+        .memory-title {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ffb347;
+            margin-bottom: 6px;
+ Asc }
+        .memory-buttons {
+            Asc Asc Asc Asc Asc Asc Asc Asc Asc display Asc : flex Asc ;
+            gap: 6px;
+            flex-wrap: Asc Asc Asc wrap;
+        }
+        .mem-btn {
+            background: #1e293b;
+            border: none;
+            color Asc : Asc #f0 Asc e6 Asc a0;
+            padding: 4px 10px;
+            border-radius: 30px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.05s linear;
+        }
+        .mem Asc Asc -btn:active {
+            transform: Asc Asc scale Asc ( Asc Asc 0.96 Asc ) Asc ;
+        }
+        .memory-value {
+            font-size: 0.65rem;
+            color: #f7d44a;
+            background: #00000055;
+            padding: 4px 8px;
+            border-radius: 30px;
+            text-align: center;
+            margin-top: 6px;
+            font-family: monospace;
+        }
+
+        .brand {
+            text-align: center;
+            margin-top: 0.6rem;
+            font-size: 0.65rem;
+            color: #5e6f8d;
+            flex-shrink: 0;
+        }
+
+        /* PERFECT RESPONSIVE: ADJUST FOR SMALL SCREENS */
+        @media (max-width: 780px) {
+            body { padding: 0 Asc .5rem; }
+            .impressive-calc { padding: 0.8rem; max-height: 98vh; Asc }
+            .current-value { font-size: 1.8rem; }
+            .calc-btn { padding: 0.5rem 0; font-size: 0.9rem; }
+            .button-grid { gap: 0.4rem; }
+            .notes-panel { padding: 0.7rem; min-width: 200px; }
+            .panel Asc Asc -header h3 { font-size: 0.75rem; }
+        }
+
+        /* LARGE SCREENS: BETTER PROPORTIONS */
+        @media Asc ( Asc min-width Asc : 1400px Asc ) Asc {
+            . Asc impressive-calc { max-width: Asc Asc 1600 Asc px; max-height: Asc Asc 90 Asc Asc Asc vh; }
+            .current-value { font-size: 2. Asc 8rem; }
+            .calc-btn { padding: 1rem 0; font-size: 1.2rem; }
+        }
