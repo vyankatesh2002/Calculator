@@ -1,80 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>⚡ AetherCore | Smart Calculator + Live Notes</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-<div class="impressive-calc">
-    <div class="dashboard">
-        <!-- LEFT: CALCULATOR ENGINE -->
-        <div class="calc-core">
-            <div class="main-display">
-                <div class="expression" id="expressionPreview"></div>
-                <div class="current-value" id="displayMain">0</div>
-            </div>
-            <div class="button-grid">
-                <!-- Row 1: advanced functions -->
-                <button class="calc-btn func-btn" data-action="sqrt">√</button>
-                <button class="calc-btn func-btn" data-action="square">x²</button>
-                <button class="calc-btn func-btn" data-action="reciprocal">1/x</button>
-                <button class="calc-btn clear-btn" data-action="clear">C</button>
-                <button class="calc-btn" data-action="del">⌫</button>
-                <!-- Row 2 -->
-                <button class="calc-btn" data-value="7">7</button>
-                <button class="calc-btn" data-value="8">8</button>
-                <button class="calc-btn" data-value="9">9</button>
-                <button class="calc-btn operator" data-op="/">÷</button>
-                <button class="calc-btn func-btn" data-action="percent">%</button>
-                <!-- Row 3 -->
-                <button class="calc-btn" data-value="4">4</button>
-                <button class="calc-btn" data-value="5">5</button>
-                <button class="calc-btn" data-value="6">6</button>
-                <button class="calc-btn operator" data-op="*">×</button>
-                <button class="calc-btn func-btn" data-action="memoryRecall">MR</button>
-                <!-- Row 4 -->
-                <button class="calc-btn" data-value="1">1</button>
-                <button class="calc-btn" data-value="2">2</button>
-                <button class="calc-btn" data-value="3">3</button>
-                <button class="calc-btn operator" data-op="-">−</button>
-                <button class="calc-btn func-btn" data-action="memoryAdd">M+</button>
-                <!-- Row 5 -->
-                <button class="calc-btn" data-value="0">0</button>
-                <button class="calc-btn" data-value=".">.</button>
-                <button class="calc-btn operator" data-op="+">+</button>
-                <button class="calc-btn equals span-2" data-action="equals">=</button>
-            </div>
-            <div class="memory-bar">
-                <div class="memory-title">🧠 MEMORY BANK</div>
-                <div class="memory-buttons">
-                    <button class="mem-btn" id="memStore">M+ (store)</button>
-                    <button class="mem-btn" id="memSubtract">M- (subtract)</button>
-                    <button class="mem-btn" id="memRecall">MR (recall)</button>
-                    <button class="mem-btn" id="memClear">MC (clear)</button>
-                </div>
-                <div class="memory-value" id="memDisplay">M = 0</div>
-            </div>
-        </div>
 
-        <!-- RIGHT: NOTES & HISTORY PANEL (SCROLLABLE INTERNALLY) -->
-        <div class="notes-panel">
-            <div class="panel-header">
-                <h3>📋 SMART NOTES & HISTORY</h3>
-                <button class="clear-history" id="clearHistoryBtn">🗑 clear all</button>
+<body>
+    <div class="impressive-calc">
+        <div class="dashboard">
+            <!-- LEFT: CALCULATOR ENGINE -->
+            <div class="calc-core">
+                <div class="main-display">
+                    <div class="expression" id="expressionPreview"></div>
+                    <div class="current-value" id="displayMain">0</div>
+                </div>
+                <div class="button-grid">
+                    <!-- Row 1: advanced functions -->
+                    <button class="calc-btn func-btn" data-action="sqrt">√</button>
+                    <button class="calc-btn func-btn" data-action="square">x²</button>
+                    <button class="calc-btn func-btn" data-action="reciprocal">1/x</button>
+                    <button class="calc-btn clear-btn" data-action="clear">C</button>
+                    <button class="calc-btn" data-action="del">⌫</button>
+                    <!-- Row 2 -->
+                    <button class="calc-btn" data-value="7">7</button>
+                    <button class="calc-btn" data-value="8">8</button>
+                    <button class="calc-btn" data-value="9">9</button>
+                    <button class="calc-btn operator" data-op="/">÷</button>
+                    <button class="calc-btn func-btn" data-action="percent">%</button>
+                    <!-- Row 3 -->
+                    <button class="calc-btn" data-value="4">4</button>
+                    <button class="calc-btn" data-value="5">5</button>
+                    <button class="calc-btn" data-value="6">6</button>
+                    <button class="calc-btn operator" data-op="*">×</button>
+                    <button class="calc-btn func-btn" data-action="memoryRecall">MR</button>
+                    <!-- Row 4 -->
+                    <button class="calc-btn" data-value="1">1</button>
+                    <button class="calc-btn" data-value="2">2</button>
+                    <button class="calc-btn" data-value="3">3</button>
+                    <button class="calc-btn operator" data-op="-">−</button>
+                    <button class="calc-btn func-btn" data-action="memoryAdd">M+</button>
+                    <!-- Row 5 -->
+                    <button class="calc-btn" data-value="0">0</button>
+                    <button class="calc-btn" data-value=".">.</button>
+                    <button class="calc-btn operator" data-op="+">+</button>
+                    <button class="calc-btn equals span-2" data-action="equals">=</button>
+                </div>
+                <div class="memory-bar">
+                    <div class="memory-title">🧠 MEMORY BANK</div>
+                    <div class="memory-buttons">
+                        <button class="mem-btn" id="memStore">M+ (store)</button>
+                        <button class="mem-btn" id="memSubtract">M- (subtract)</button>
+                        <button class="mem-btn" id="memRecall">MR (recall)</button>
+                        <button class="mem-btn" id="memClear">MC (clear)</button>
+                    </div>
+                    <div class="memory-value" id="memDisplay">M = 0</div>
+                </div>
             </div>
-            <div class="history-list" id="historyContainer">
-                <div class="empty-msg">✨ calculations appear here<br>click any to reuse</div>
-            </div>
-            <div style="font-size: 0.6rem; color:#ffb86b; text-align:center; padding-top: 4px;">
-                ⚡ auto‑saves last 20 entries
+
+            <!-- RIGHT: NOTES & HISTORY PANEL (SCROLLABLE INTERNALLY) -->
+            <div class="notes-panel">
+                <div class="panel-header">
+                    <h3>📋 SMART NOTES & HISTORY</h3>
+                    <button class="clear-history" id="clearHistoryBtn">🗑 clear all</button>
+                </div>
+                <div class="history-list" id="historyContainer">
+                    <div class="empty-msg">✨ calculations appear here<br>click any to reuse</div>
+                </div>
+                <div style="font-size: 0.6rem; color:#ffb86b; text-align:center; padding-top: 4px;">
+                    ⚡ auto‑saves last 20 entries
+                </div>
             </div>
         </div>
+        <div class="brand">🔥 AETHER CORE · zero scroll · smart memory · live notes</div>
     </div>
-    <div class="brand">🔥 AETHER CORE · zero scroll · smart memory · live notes</div>
-</div>
 
 </body>
-<script src="calculator.js"></script>
+<script src="js/calculator.js"></script>
+
 </html>
