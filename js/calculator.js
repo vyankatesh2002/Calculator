@@ -278,11 +278,11 @@ class UltimateCalculator {
         }
         
         bindButtons() {
-            document.querySelectorAll('[data-value]').forEach(btn => {
+document.querySelectorAll('[data-value]').forEach(function(btn) {
                 btn.addEventListener('click', () => this.appendNumber(btn.getAttribute('data-value')));
             });
-            document.querySelectorAll('[data-op]').forEach(btn => {
-                btn.addEventListener('click', () => {
+document.querySelectorAll('[data-op]').forEach(function(btn) {
+btn.addEventListener('click', function() {
                     let op = btn.getAttribute('data-op');
                     if (op === '÷') op = '/';
                     if (op === '×') op = '*';
@@ -297,17 +297,17 @@ class UltimateCalculator {
             const delBtn = document.querySelector('[data-action="del"]');
             if (delBtn) delBtn.addEventListener('click', () => this.deleteLast());
             
-            document.querySelectorAll('[data-action]').forEach(btn => {
+document.querySelectorAll('[data-action]').forEach(function(btn) {
                 const act = btn.getAttribute('data-action');
                 if (act === 'sqrt' || act === 'square' || act === 'reciprocal' || act === 'percent') {
-                    btn.addEventListener('click', () => this.applyFunction(act));
+btn.addEventListener('click', (function(self, act) { return function() { self.applyFunction(act); }; })(this, act));
                 }
-                if (act === 'memoryAdd') btn.addEventListener('click', () => this.memoryAdd());
-                if (act === 'memoryRecall') btn.addEventListener('click', () => this.memoryRecall());
+if (act === 'memoryAdd') btn.addEventListener('click', (function(self) { return function() { self.memoryAdd(); }; })(this));
+if (act === 'memoryRecall') btn.addEventListener('click', (function(self) { return function() { self.memoryRecall(); }; })(this));
             });
-            document.getElementById('memStore')?.addEventListener('click', () => this.memoryAdd());
-            document.getElementById('memSubtract')?.addEventListener('click', () => this.memorySubtract());
-            document.getElementById('memRecall')?.addEventListener('click', () => this.memoryRecall());
+var memStore = document.getElementById('memStore'); if(memStore) memStore.addEventListener('click', (function(self) { return function() { self.memoryAdd(); }; })(this));
+var memSubtract = document.getElementById('memSubtract'); if(memSubtract) memSubtract.addEventListener('click', (function(self) { return function() { self.memorySubtract(); }; })(this));
+var memRecall = document.getElementById('memRecall'); if(memRecall) memRecall.addEventListener('click', (function(self) { return function() { self.memoryRecall(); }; })(this));
             document.getElementById('memClear')?.addEventListener('click', () => this.memoryClear());
             document.getElementById('clearHistoryBtn')?.addEventListener('click', () => this.clearHistory());
         }
