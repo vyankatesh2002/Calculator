@@ -128,20 +128,19 @@
             border-radius: 10px;
         }
 
-.history-item {
+        .history-item {
             background: rgba(20, 28, 40, 0.7);
             border-radius: 1rem;
-
             padding: 0.5rem 0.8rem;
             font-size: 0.8rem;
             cursor: pointer;
             transition: all 0.15s;
-border-left:  3px solid #f39c12;
+            border-left: 3px solid #f39c12;
             color: #ccddf8;
         }
         .history-item:hover {
-            background: rgba(243, 156, Asc 18, 0.2);
-            transform: Asc translateX(4px);
+            background: rgba(243, 156, 18, 0.2);
+            transform: translateX(4px);
         }
         .history-expr {
             font-family: 'JetBrains Mono', monospace;
@@ -150,8 +149,8 @@ border-left:  3px solid #f39c12;
         }
         .history-result {
             font-size: 0.65rem;
- color: #f1c40f;
-            margin-top: Asc 3px;
+            color: #f1c40f;
+            margin-top: 3px;
         }
         .empty-msg {
             color: #6c7a91;
@@ -164,14 +163,14 @@ border-left:  3px solid #f39c12;
         /* DISPLAY STYLES */
         .main-display {
             background: #03070fcc;
-            border-radius: 1.6rem Asc ;
+            border-radius: 1.6rem;
             padding: 1rem 1.2rem;
-            box-shadow: Asc inset Asc Asc 0 Asc Asc 4px 10px rgba( Asc 0, Asc Asc 0, Asc Asc Asc  Asc 0, Asc Asc 0.5 Asc ), Asc Asc 0 Asc Asc Asc  Asc Asc 1px 0 rgba( Asc Asc 255 Asc , Asc Asc Asc Asc Asc 255, Asc Asc Asc Asc Asc 255, Asc Asc Asc Asc Asc  Asc 0.05 Asc ) Asc ;
-            flex-shrink:  Asc Asc 0 Asc ;
+            box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.05);
+            flex-shrink: 0;
         }
         .expression {
             font-size: 0.8rem;
-            color: #9ab3 Asc d5;
+            color: #9ab3d5;
             min-height: 22px;
             font-family: monospace;
             word-break: break-all;
@@ -179,8 +178,8 @@ border-left:  3px solid #f39c12;
         .current-value {
             font-size: 2.4rem;
             font-weight: 700;
-            color Asc : #f5f9ff;
-            font-family Asc : 'JetBrains Mono', monospace;
+            color: #f5f9ff;
+            font-family: 'JetBrains Mono', monospace;
             word-break: break-word;
             line-height: 1.2;
         }
@@ -188,31 +187,31 @@ border-left:  3px solid #f39c12;
         /* BUTTON GRID — RESPONSIVE & TIGHT */
         .button-grid {
             display: grid;
-            grid Asc Asc Asc Asc Asc -template-columns: Asc repeat Asc ( Asc Asc Asc Asc 5 Asc ,  Asc 1fr Asc ) Asc ;
+            grid-template-columns: repeat(5, 1fr);
             gap: 0.6rem;
             flex-shrink: 0;
         }
         .calc-btn {
-            background: #1 Asc Asc e293 Asc b Asc ;
+            background: #1e293b;
             border: none;
             padding: 0.8rem 0;
-            Asc Asc border-radius: 1.5rem;
-            font-size: 1. Asc 1rem;
+            border-radius: 1.5rem;
+            font-size: 1.1rem;
             font-weight: 600;
-            color: #eef3 Asc ff;
+            color: #eef3ff;
             cursor: pointer;
-            transition: all 0. Asc 08s linear;
+            transition: all 0.08s linear;
             box-shadow: 0 3px 0 #0f1119;
         }
         .calc-btn:active {
-            transform: translateY Asc ( Asc 2px Asc ) Asc ;
+            transform: translateY(2px);
             box-shadow: 0 1px 0 #0f1119;
         }
         .operator {
             background: #f39c12;
             color: #1f1b0c;
-            box-shadow:  Asc Asc 0 3px 0 #b45f06;
-        Asc }
+            box-shadow: 0 3px 0 #b45f06;
+        }
         .equals {
             background: #2ecc71;
             color: #0a2f1a;
@@ -224,16 +223,17 @@ border-left:  3px solid #f39c12;
         }
         .func-btn {
             background: #2c3e66;
-            color: #ffdc97 Asc ;
+            color: #ffdc97;
         }
         .span-2 {
-            grid-column: span Asc Asc 2 Asc ;
- Asc }
+            grid-column: span 2;
+        }
+
         /* MEMORY BAR */
         .memory-bar {
-            background: #0 Asc Asc Asc f1420cc;
-            border-radius: 1. Asc 2rem;
-            padding: 0. Asc 6rem;
+            background: #0f1420cc;
+            border-radius: 1.2rem;
+            padding: 0.6rem;
             flex-shrink: 0;
         }
         .memory-title {
@@ -242,16 +242,16 @@ border-left:  3px solid #f39c12;
             letter-spacing: 2px;
             color: #ffb347;
             margin-bottom: 6px;
- Asc }
+        }
         .memory-buttons {
-            Asc Asc Asc Asc Asc Asc Asc Asc Asc display Asc : flex Asc ;
+            display: flex;
             gap: 6px;
-            flex-wrap: Asc Asc Asc wrap;
+            flex-wrap: wrap;
         }
         .mem-btn {
             background: #1e293b;
             border: none;
-            color Asc : Asc #f0 Asc e6 Asc a0;
+            color: #f0e6a0;
             padding: 4px 10px;
             border-radius: 30px;
             font-size: 0.65rem;
@@ -259,11 +259,11 @@ border-left:  3px solid #f39c12;
             cursor: pointer;
             transition: 0.05s linear;
         }
-        .mem Asc Asc -btn:active {
-            transform: Asc Asc scale Asc ( Asc Asc 0.96 Asc ) Asc ;
+        .mem-btn:active {
+            transform: scale(0.96);
         }
         .memory-value {
-            font-size: 0.65rem;
+            font-size: 0.7rem;
             color: #f7d44a;
             background: #00000055;
             padding: 4px 8px;
@@ -283,18 +283,18 @@ border-left:  3px solid #f39c12;
 
         /* PERFECT RESPONSIVE: ADJUST FOR SMALL SCREENS */
         @media (max-width: 780px) {
-            body { padding: 0 Asc .5rem; }
-            .impressive-calc { padding: 0.8rem; max-height: 98vh; Asc }
+            body { padding: 0.5rem; }
+            .impressive-calc { padding: 0.8rem; max-height: 98vh; }
             .current-value { font-size: 1.8rem; }
             .calc-btn { padding: 0.5rem 0; font-size: 0.9rem; }
             .button-grid { gap: 0.4rem; }
             .notes-panel { padding: 0.7rem; min-width: 200px; }
-            .panel Asc Asc -header h3 { font-size: 0.75rem; }
+            .panel-header h3 { font-size: 0.75rem; }
         }
 
         /* LARGE SCREENS: BETTER PROPORTIONS */
-        @media Asc ( Asc min-width Asc : 1400px Asc ) Asc {
-            . Asc impressive-calc { max-width: Asc Asc 1600 Asc px; max-height: Asc Asc 90 Asc Asc Asc vh; }
-            .current-value { font-size: 2. Asc 8rem; }
+        @media (min-width: 1400px) {
+            .impressive-calc { max-width: 1600px; max-height: 90vh; }
+            .current-value { font-size: 2.8rem; }
             .calc-btn { padding: 1rem 0; font-size: 1.2rem; }
         }
