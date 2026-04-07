@@ -23,7 +23,7 @@ A modern, high-performance web calculator built with clean UI principles, advanc
 * MR (Recall memory)
 * MC (Clear memory)
 
-### 📜 Smart History
+### 📜 Smart History 
 
 * Stores last 20 calculations
 * Click any history item to reuse result
@@ -38,6 +38,7 @@ A modern, high-performance web calculator built with clean UI principles, advanc
 
 * Works on mobile, tablet, desktop
 * No external scrolling (optimized viewport fit)
+* perfect show the digits 
 
 ### 🎯 UI/UX Highlights
 
