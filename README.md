@@ -115,6 +115,7 @@ npx serve .
 ## 📸 Preview
 
 > Add a screenshot here after deploying project
+> adding photos
 
 ---
 
